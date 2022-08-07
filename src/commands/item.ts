@@ -87,6 +87,21 @@ async function handleGive(player: Player, itemId: number, count:number, level: n
                 } as Equipment);
             }
             break;
+        case "Virtual":
+            await inventory.addVirtualItem(itemId, count);
+            break;
+        case "Relic":
+            await inventory.addRelic({
+                    tid: itemId,
+                    uniqueId: 0,
+                    level: 1,
+                    exp: 1,
+                    isProtected: false,
+                    baseAvatarId: 0,
+                    mainAffixId: 1,
+                    subAffixList: []
+            });
+            break;
         default:
             return c.log(`Unsupported item type: ${itemData.ItemType}.`);
             break;

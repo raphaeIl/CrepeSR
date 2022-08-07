@@ -249,10 +249,10 @@ export default class Inventory {
     public async addRelic(relic: number | Relic) {
         // Don't add relics for now until we figure out affix IDs, since the game kinda breaks with
         // incorrect ones.
-        return;
+        // return;
 
         // If the parameter is a number, add a new equipment with this item ID as base.
-        /*if (typeof(relic) == "number") {
+        if (typeof(relic) == "number") {
             const rel : Relic = {
                 tid: relic,
                 uniqueId: this.db.nextItemUid++,
@@ -270,7 +270,7 @@ export default class Inventory {
 
         // Otherwise, add the equipment object directly, but reset it's UID.
         relic.uniqueId = this.db.nextItemUid++;
-        this.db.relics.push(relic);*/
+        this.db.relics.push(relic);
     }
 
     /********************************************************************************
